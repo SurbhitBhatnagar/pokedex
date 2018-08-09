@@ -1,9 +1,9 @@
-Pokedex
 Pokedex is a device which acts as the official encyclopedia of the Pokemon universe. In the Pokemon series, the fictional characters like Ash used to use the device to find the details about a new found Pokemon.
 This is a web application which has tried to imitate the same Pokedex. It searches and informs the user, the details related to the Pokemon they want to explore.
 The user can search based on “Name”, “ID” (limiting to 151) and “type”. For instance, the user can type “Pikachu” in the search bar and click the search button. It will result in a UI component which if clicked will give details about Pikachu.
 
 /**********************************************************************************************************/
+
 Getting Started
 To run the application, we need to first install the dependencies.
 ->	Install Node.js environment and npm:-
@@ -15,6 +15,7 @@ Mac OS:
 https://treehouse.github.io/installation-guides/mac/node-mac.html
 
 /***********************************************************************************************************/
+
 Prerequisites and app running instructions
 ->	npm install:
 After the setting up of Node environment:-
