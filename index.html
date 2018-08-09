@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokedex</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+    <!--<script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="/Angular/app.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<!--<header>-->
+    <!--<div class ="row" style="align-content: center">-->
+        <!--<img id= 'logo' src="/images/pokeball-logo.png"/><h2 id="app-name"> Pokedex </h2>-->
+    <!--</div>-->
+<!--</header>-->
+<body ng-controller = "mainCtrl">
+    <div class="container">
+        <!--style="align-content: center-->
+        <div class ="row">
+
+            <img ng-click="enablePoster();" src="/images/pokeball-logo.png"/><img ng-click ="enablePoster();" src="/images/pokedexlogo.png"/>
+         </div>
+    </div>
+
+<div class="container">
+    <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--<script type="text/ng-template" id="group-template.html">-->
+        <!--<div class="panel-heading">-->
+            <!--<h4 class="panel-title" style="color:#fa39c3">-->
+                <!--<a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">-->
+          <!--<span uib-accordion-header ng-class="{'text-muted': isDisabled}">-->
+            <!--{{heading}}-->
+          <!--</span>-->
+                <!--</a>-->
+            <!--</h4>-->
+        <!--</div>-->
+        <!--<div class="panel-collapse collapse" uib-collapse="!isOpen">-->
+            <!--<div class="panel-body" style="text-align: right" ng-transclude></div>-->
+        <!--</div>-->
+    <!--</script>-->
+    <!--<script type="text/ng-template" id="group-template.html">-->
+        <!--<div class="panel-heading">-->
+            <!--<h4 class="panel-title" style="color:#fa39c3">-->
+                <!--<a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">-->
+          <!--<span uib-accordion-header ng-class="{'text-muted': isDisabled}">-->
+            <!--{{heading}}-->
+          <!--</span>-->
+                <!--</a>-->
+            <!--</h4>-->
+        <!--</div>-->
+        <!--<div class="panel-collapse collapse" uib-collapse="!isOpen">-->
+            <!--<div class="panel-body" style="text-align: right" ng-transclude></div>-->
+        <!--</div>-->
+    <!--</script>-->
+    <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class="row">
+        <h2>Explore your favourite Pokemons!</h2>
+    </div>
+    <div class="row" >
+    <!--<div class="row" >  //-->
+        <div class = "col-sm-6">
+            <input type="text" class = "entry" ng-model="phrase" placeholder="Enter Name, Id or Type"/>
+        </div>
+        <div class="col-sm-6">
+            <button type ="button" ng-click="search();" class="btn btn-primary btn-block"><h1  id="trigger-btn"><b>Let's catch some Pokemon!</b></h1></button></div>
+        <!--<div class="col-sm-4"></div>-->
+    </div>
+</div>
+    <br>
+    <br>
+    <div class="container" ng-if="toggle">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <img id = "poster" src="/images/poster.jpg">
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+    <div class="container">
+        <!--close-others="oneAtATime"-->
+        <uib-accordion>
+        <div uib-accordion-group ng-if = "!toggle" class="panel-default" heading="{{group.name.toUpperCase()}}" ng-repeat="group in pokelist">
+            <div class = "row">
+                <div class = "col-sm-4">
+                    <img src="{{group.largeImg}}"/>
+                </div>
+                <div class = "col-sm-8">
+                    <div class="row"><div class ="col-sm-4"><h1>{{group.name.toUpperCase()}}</h1></div>
+                        <!--<div ng-repeat = "sprite in group.sprites">-->
+                        <div class="col-sm-8"><img ng-repeat = "sprite in group.sprites" src="{{sprite}}"/></div></div>
+                    <div class = "row">
+                        <div class = "col-sm-4">
+                            <h3>Height: </h3><span class="height">{{group.height}}</span>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3>Weight: </h3> <span class="weight">{{group.weight}}</span>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-sm-4">
+                            <h3>Habitat: </h3> <span class="habitat">{{group.habitat.toUpperCase()}}</span>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3>Types: </h3><span class="type" ng-repeat = "type in group.types">{{type.type.name.toUpperCase()}}<p>  </p></span>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-sm-8">
+                            <h3>Moves: </h3> <span class="move" ng-repeat = "move in group.moves">{{move.toUpperCase()}}<br></span>
+                        </div>
+                    </div>
+                </div>
+                    <!--<h3>Height: </h3><span class="height">{{group.height}}</span>   <h3>Weight: </h3> <span class="weight">{{group.weight}}</span>-->
+                    <!--<div>   </div>--
+                    <!--<ul>-->
+                        <!--<li ng-repeat ="ability in group.abilities">-->
+                            <!--<ul>-->
+                                <!--<li ng-repeat ="text in group.abilityEffects"><h1>{{text.short_effects}}</h1></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+
+            </div>
+            <br> <br>
+            <div class ="row">
+                <div class = "col-sm-6"><p class = "text-data" ng-repeat ="effect in group.abilityEffects">{{effect.short_effect}}</p></div>
+                 <!--<br>-->
+                <!--<br>-->
+                <div class="col-sm-6"><p class ="text-data" ng-repeat ="text in group.abilityFlavorTexts">{{text}}</p></div>
+            </div>
+
+        </div>
+        </uib-accordion>
+    </div>
+</div>
+
+</body>
+</html>

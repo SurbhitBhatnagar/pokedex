@@ -1,0 +1,56 @@
+/*.head {*/
+    /*display: flex;*/
+/*}*/
+
+/*.logo {*/
+    /*order: 2;*/
+/*}*/
+
+/*.app-name {*/
+    /*order:1;*/
+/*}*/
+.entry{
+    font-size: x-large;
+    height: 3.3em;
+    width: 20em;
+}
+
+#trigger-btn {
+    color: ghostwhite;
+    font-size: x-large;
+}
+
+#poster{
+    height: 100%;
+    width: 100%;
+}
+
+.height{
+    background-color: beige;
+    font-size: larger;
+}
+
+.weight{
+    background-color: floralwhite;
+    font-size: larger;
+}
+
+.habitat{
+    background-color: cornsilk;
+    font-size: larger;
+}
+
+.move{
+    color: darkblue;
+    font-size: larger;
+}
+
+.type{
+    background-color: ivory;
+    font-size: larger;
+}
+
+.text-data{
+    align-content: center;
+    font-size: larger;
+}

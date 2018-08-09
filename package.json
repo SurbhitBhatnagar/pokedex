@@ -1,0 +1,21 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "\"A web application to index Pokemon\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run dev",
+    "dev": "lite-server"
+  },
+  "author": "Surbhit Bhatnagar",
+  "license": "ISC",
+  "dependencies": {
+    "angular-animate": "^1.7.2",
+    "angular-material": "^1.1.10",
+    "angular-sanitize": "^1.7.2",
+    "angular-ui-bootstrap": "^2.5.6",
+    "angular-ui-carousel": "^0.1.10",
+    "express": "^4.16.3",
+    "lite-server": "^2.4.0"
+  }
+}
